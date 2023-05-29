@@ -3,20 +3,18 @@ const inquirer = require('inquirer');
 const mysql = require('mysql2');
 
 const PORT = process.env.PORT || 3001;
-const app = express();
-
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 const db = mysql.createConnection(
   {
-    host: 'localhost',
+    host: '127.0.0.1',
     user: 'root',
     password: 'password',
     database: 'employee_db'
   },
   console.log(`Connected to the department_db database.`)
 );
+
+startApp();
 
 function startApp(){
   inquirer
@@ -60,11 +58,11 @@ function startApp(){
       startApp();
     });
   }
-  else if(res.option === 'View all employee'){
-    console.log('Employee')
-    db.query(`SELECT * FROM employee
+  else if(res.option === 'View all employees'){
+    console.log('Employees')
+    db.query(`SELECT * FROM employees
     LEFT JOIN roles
-    ON employee.role_id = roles.id;`, function (err, results){
+    ON employees.role_id = roles.id;`, function (err, results){
       if(err){
         console.log("error");
       } else {
@@ -150,7 +148,7 @@ function startApp(){
     ])
     .then((res) => {
       console.log('Success! Added', res.first)
-      db.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) 
+      db.query(`INSERT INTO employees (first_name, last_name, role_id, manager_id) 
       VALUES(?)`, res.first, res.last, res.role_id, res.manager_id);
       startApp();
     });
