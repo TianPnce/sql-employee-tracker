@@ -45,5 +45,8 @@ THEN I am prompted to select an employee to update and their new role and this i
 - Inquirer
 - JavaScript
 
+## Notes
+Issues I have with this application is that my employee table is not connecting, and I've spent a lot of time on it but could not figure out the issue. That is preventing me from adding employees and roles to a point.
+
 ## Questions
 [TianPnce](https://github.com/TianPnce)
