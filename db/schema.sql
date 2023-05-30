@@ -5,21 +5,21 @@ CREATE DATABASE employee_db;
 USE employee_db;
 
 CREATE TABLE departments (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   department VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE roles (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL NOT NULL,
-  department_id INT
+  department_id INT NOT NULL,
   FOREIGN KEY (department_id)
   REFERENCES departments(id)
   ON DELETE CASCADE
 );
 CREATE TABLE employees (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   role_id INT,
@@ -29,5 +29,5 @@ CREATE TABLE employees (
   manager_id INT,
   FOREIGN KEY (manager_id)
   REFERENCES employees(id)
-  ON CASCADE DELETE
+  ON DELETE CASCADE
 );

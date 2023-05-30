@@ -1,4 +1,4 @@
-USE emplyee_db
+USE employee_db
 
 INSERT INTO departments (department)
 VALUES
