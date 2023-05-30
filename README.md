@@ -32,6 +32,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 ```
 
 ## Walkthrough 
+[Screencastify](https://watch.screencastify.com/v/9LmI7Cm2AU6FRk24kw4r)
 
 
 ## Installation
